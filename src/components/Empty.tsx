@@ -2,7 +2,7 @@ import clipboardImg from '../assets/clipboard.svg';
 
 import styles from './Empty.module.css';
 
-export default function Empty() {
+export function Empty() {
   return (
     <div className={styles.empty}>
       <img src={clipboardImg} alt="Clipboard" />

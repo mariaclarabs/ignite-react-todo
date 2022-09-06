@@ -1,9 +1,14 @@
 import { PlusCircle } from 'phosphor-react';
-import Empty from './Empty';
+import { useState } from 'react';
+
+import { Empty } from './Empty';
 
 import styles from './List.module.css';
+import { Task } from './Task';
 
 export function List() {
+  const [tasks/*, setTasks*/] = useState(['']);
+
   return (
     <div className={styles.container}>
       <form className={styles.newTaskForm}>
@@ -23,7 +28,10 @@ export function List() {
           <span>0</span>
         </div>
       </div>
-      <Empty />
+      {tasks.length === 0 ?
+        <Empty /> :
+        <Task />
+      }
     </div>
   );
 }

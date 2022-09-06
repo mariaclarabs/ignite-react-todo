@@ -98,4 +98,8 @@
   .newTaskForm {
     grid-template-columns: 1fr;
   }
+
+  .container {
+    padding: 0 1rem;
+  }
 }
