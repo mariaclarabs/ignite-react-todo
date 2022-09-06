@@ -50,6 +50,46 @@
   filter: brightness(0.9);
 }
 
+.toDoListHeader {
+  width: 100%;
+  margin-top: 4rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.toDoListHeader div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toDoListHeader div strong {
+  font-size: 0.875;
+  line-height: 1.7;
+}
+
+.toDoListHeader div span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  background: var(--gray-400);
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.createdTasks {
+  color: var(--blue);
+}
+
+.finishedTasks {
+  color: var(--purple);
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 87.5%;
