@@ -1,5 +1,5 @@
 import { PlusCircle } from 'phosphor-react';
-import { Header } from './Header';
+import Empty from './Empty';
 
 import styles from './List.module.css';
 
@@ -23,6 +23,7 @@ export function List() {
           <span>0</span>
         </div>
       </div>
+      <Empty />
     </div>
   );
 }
