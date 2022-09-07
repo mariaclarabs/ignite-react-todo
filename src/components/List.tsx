@@ -1,19 +1,64 @@
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 import { PlusCircle } from 'phosphor-react';
-import { useState } from 'react';
+import { v4 } from 'uuid';
 
 import { Empty } from './Empty';
 
 import styles from './List.module.css';
 import { Task } from './Task';
 
+type TaskItem = {
+  id: string;
+  text: string;
+  createdAt: Date;
+  done: boolean;
+}
+
 export function List() {
-  const [tasks/*, setTasks*/] = useState(['']);
+  const [newTaskText, setNewTaskText] = useState('');
+  const [tasks, setTasks] = useState<TaskItem[]>([]);
+
+  function handleCreateTask(event: FormEvent) {
+    event.preventDefault();
+
+    const newTask = {
+      id: v4(),
+      text: newTaskText,
+      createdAt: new Date(),
+      done: false,
+    }
+
+    setTasks(oldTasks => [...oldTasks, newTask]);
+    setNewTaskText('');
+  }
+
+  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity('');
+
+    setNewTaskText(event.target.value);
+  }
+
+  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity('Esse campo é obrigatório!');
+  }
+
+  const isNewTaskEmpty = newTaskText.length === 0;
 
   return (
     <div className={styles.container}>
-      <form className={styles.newTaskForm}>
-        <input name="task" placeholder='Adicione uma nova tarefa' />
-        <button type="submit">
+      <form className={styles.newTaskForm} onSubmit={handleCreateTask}>
+        <input 
+          name="task"
+          placeholder='Adicione uma nova tarefa'
+          value={newTaskText}
+          onChange={handleNewTaskChange}
+          onInvalid={handleNewTaskInvalid}
+          required
+        />
+        <button
+          type="submit"
+          disabled={isNewTaskEmpty}
+        >
           Criar
           <PlusCircle size={16} />
         </button>
@@ -30,7 +75,11 @@ export function List() {
       </div>
       {tasks.length === 0 ?
         <Empty /> :
-        <Task />
+        <>
+          {tasks.map(task => (
+            <Task key={task.id} {...task} />
+          ))}
+        </>
       }
     </div>
   );

@@ -2,15 +2,22 @@ import { Trash } from "phosphor-react";
 
 import styles from './Task.module.css';
 
-export function Task() {
+type TaskItem = {
+  id: string;
+  text: string;
+  createdAt: Date;
+  done: boolean;
+}
+
+export function Task({ id, text, done }: TaskItem) {
   return (
     <div className={styles.task}>
       <div>
-        <input type='checkbox' id='checkbox' />
-        <label htmlFor='checkbox' />
+        <input type='checkbox' id={id} />
+        <label htmlFor={id} />
       </div>
-      <span className={styles.finishedTask}>
-        Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+      <span className={done ? styles.finishedTask : ''}>
+        {text}
       </span>
       <button>
         <Trash size={20}/>

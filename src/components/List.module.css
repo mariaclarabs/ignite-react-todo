@@ -46,8 +46,13 @@
   transition: background-color 0.1s;
 }
 
-.newTaskForm > button[type='submit']:hover {
+.newTaskForm > button[type='submit']:not(:disabled):hover {
   filter: brightness(0.9);
+}
+
+.newTaskForm > button:disabled {
+  filter: brightness(0.4);
+  cursor: not-allowed;
 }
 
 .toDoListHeader {
