@@ -42,6 +42,14 @@ export function List() {
     event.target.setCustomValidity('Esse campo é obrigatório!');
   }
 
+  function checkTask(event: ChangeEvent<HTMLInputElement>) {
+    setTasks(oldTasks => oldTasks.map(task => {
+      if (task.id === event.target.id)
+        return { ...task, done: event.target.checked };
+      return task;
+    }));
+  }
+
   const isNewTaskEmpty = newTaskText.length === 0;
 
   return (
@@ -77,7 +85,13 @@ export function List() {
         <Empty /> :
         <>
           {tasks.map(task => (
-            <Task key={task.id} {...task} />
+            <Task 
+              key={task.id}
+              id={task.id}
+              text={task.text}
+              done={task.done}
+              onCheckTask={checkTask}
+            />
           ))}
         </>
       }
