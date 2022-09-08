@@ -57,6 +57,12 @@ export function List() {
   }
 
   const isNewTaskEmpty = newTaskText.length === 0;
+  const doneTasks = tasks.reduce((previousValue, currentValue) => {
+    if (currentValue.done) {
+      return previousValue + 1;
+    }
+    return previousValue;
+  }, 0);
 
   return (
     <div className={styles.container}>
@@ -80,11 +86,11 @@ export function List() {
       <div className={styles.toDoListHeader}>
         <div>
           <strong className={styles.createdTasks}>Tarefas criadas</strong>
-          <span>0</span>
+          <span>{tasks.length}</span>
         </div>
         <div>
           <strong className={styles.finishedTasks}>Concluídas</strong>
-          <span>0</span>
+          <span>{tasks.length > 0 ? `${doneTasks} de ${tasks.length}` : 0 }</span>
         </div>
       </div>
       {tasks.length === 0 ?
