@@ -28,7 +28,8 @@ export function List() {
       done: false,
     }
 
-    setTasks(oldTasks => [...oldTasks, newTask]);
+    // @ts-ignore
+    setTasks(oldTasks => [...oldTasks, newTask].sort((a, b) => b.createdAt - a.createdAt));
     setNewTaskText('');
   }
 
@@ -47,7 +48,8 @@ export function List() {
       if (task.id === event.target.id)
         return { ...task, done: event.target.checked };
       return task;
-    }));
+    // @ts-ignore
+    }).sort((a, b) => b.createdAt - a.createdAt));
   }
 
   const isNewTaskEmpty = newTaskText.length === 0;
@@ -84,7 +86,8 @@ export function List() {
       {tasks.length === 0 ?
         <Empty /> :
         <>
-          {tasks.map(task => (
+          {/* @ts-ignore */}
+          {tasks.sort((a, b) => a.done - b.done).map(task => (
             <Task 
               key={task.id}
               id={task.id}
