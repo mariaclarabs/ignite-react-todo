@@ -1,0 +1,85 @@
+.task {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--gray-500);
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+}
+
+.task > div {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.task > div label {
+  width: 1.09rem;
+  height: 1.09rem;
+  background: var(--gray-500);
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  position: absolute;
+  top: 0.2rem;
+  left: 0;
+  cursor: pointer;
+}
+
+.task > div label:after {
+  border: 2px solid var(--gray-100);
+  border-top: none;
+  border-right: none;
+  content: "";
+  top: 0.2rem;
+  left: 0.15rem;
+  opacity: 0;
+  position: absolute;
+  transform: rotate(-45deg);
+  width: 0.4rem;
+  height: 0.2rem;
+}
+
+.task > div input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.task > div input[type="checkbox"]:checked + label {
+  background-color: var(--purple);
+  border-color: var(--purple);
+}
+
+.task > div input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+.task span {
+  color: var(--gray-100);
+  margin-left: 0.75rem;
+  flex: 1;
+}
+
+.task > button {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--gray-500);
+  border: 0;
+  line-height: 0;
+
+  cursor: pointer;
+}
+
+.task svg {
+  color: var(--gray-300);
+}
+
+.finishedTask {
+  color: var(--gray-300) !important;
+  text-decoration-line: line-through;
+}

@@ -1,0 +1,13 @@
+.header {
+  height: 12.5rem;
+  background: var(--gray-700);
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.header > img {
+  width: 7.875rem;
+  margin-top: 4.5rem;
+}
