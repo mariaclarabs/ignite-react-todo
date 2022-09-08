@@ -8,11 +8,16 @@ type TaskProps = {
   text: string;
   done: boolean;
   onCheckTask: (event: ChangeEvent<HTMLInputElement>) => void;
+  onDeleteTask: (id: string) => void;
 }
 
-export function Task({ id, text, done, onCheckTask }: TaskProps) {
+export function Task({ id, text, done, onCheckTask, onDeleteTask }: TaskProps) {
   function handleCheckTask(event: ChangeEvent<HTMLInputElement>) {
     onCheckTask(event);
+  }
+
+  function handleDeleteTask() {
+    onDeleteTask(id);
   }
 
   return (
@@ -24,7 +29,7 @@ export function Task({ id, text, done, onCheckTask }: TaskProps) {
       <span className={done ? styles.finishedTask : ''}>
         {text}
       </span>
-      <button>
+      <button onClick={handleDeleteTask}>
         <Trash size={20}/>
       </button>
     </div>

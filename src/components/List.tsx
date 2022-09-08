@@ -52,6 +52,10 @@ export function List() {
     }).sort((a, b) => b.createdAt - a.createdAt));
   }
 
+  function deleteTask(id: string) {
+    setTasks(oldTasks => oldTasks.filter(task => task.id !== id));
+  }
+
   const isNewTaskEmpty = newTaskText.length === 0;
 
   return (
@@ -94,6 +98,7 @@ export function List() {
               text={task.text}
               done={task.done}
               onCheckTask={checkTask}
+              onDeleteTask={deleteTask}
             />
           ))}
         </>
