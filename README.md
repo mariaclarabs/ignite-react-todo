@@ -1,5 +1,7 @@
 # :white_check_mark: ToDo List
 
+Essa é uma aplicação de lista de tarefas.
+
 ## Techs
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -34,9 +36,7 @@ O app estará disponível no seu browser pelo endereço http://127.0.0.1:5173/.
 
 ## Projeto
 
-ToDo List é uma aplicação de lista de tarefas.
-
-Este é um desafio da trilha de React do Ignite da Rocketseat.
+ToDo list é um projeto desenvolvido em um desafio da trilha de React do Ignite da Rocketseat.
 
 ## Layout
 
