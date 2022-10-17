@@ -1,6 +1,6 @@
 {
   "name": "ignite-react-todo",
-  "auhtor": "mariaclarabs",
+  "author": "Maria Clara B Souza (mariaclarabs)",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.9",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

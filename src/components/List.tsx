@@ -96,8 +96,7 @@ export function List() {
       {tasks.length === 0 ?
         <Empty /> :
         <>
-          {/* @ts-ignore */}
-          {tasks.sort((a, b) => a.done - b.done).map(task => (
+          {tasks.sort((a, b) => Number(a.done) - Number(b.done)).map(task => (
             <Task 
               key={task.id}
               id={task.id}
