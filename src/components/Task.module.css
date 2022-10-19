@@ -1,6 +1,6 @@
 .task {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   margin-top: 1.5rem;
   padding: 1rem;
@@ -28,6 +28,10 @@
   line-height: 0;
 
   cursor: pointer;
+}
+
+.task span > svg {
+  color: var(--blue)
 }
 
 .task svg {

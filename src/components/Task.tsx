@@ -30,6 +30,7 @@ export function Task({ id, text, done, onCheckTask, onDeleteTask }: TaskProps) {
         icon={<Circle size={18} />}
         checkedIcon={<img src={CheckedIcon} />}
         onChange={handleCheckTask}
+        style={{ height: '24px' }}
       />
       <span className={done ? styles.finishedTask : ''}>
         {text}
